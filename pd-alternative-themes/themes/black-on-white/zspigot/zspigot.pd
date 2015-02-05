@@ -1,0 +1,18 @@
+#N canvas 829 431 619 385 10;
+#X obj 101 101 tgl 44 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1;
+#X msg 201 122 open \$1.gif;
+#X obj 329 15 inlet;
+#X obj 123 123 image 0.gif;
+#X obj 329 255 outlet;
+#X obj 329 215 spigot;
+#X obj 463 15 inlet;
+#X obj 101 68 expr if ($f1==0 \, 0 \, 1);
+#X connect 0 0 1 0;
+#X connect 0 0 5 1;
+#X connect 1 0 3 0;
+#X connect 2 0 5 0;
+#X connect 5 0 4 0;
+#X connect 6 0 5 1;
+#X connect 6 0 7 0;
+#X connect 7 0 0 0;
+#X coords 0 -1 1 1 46 46 2 100 100;

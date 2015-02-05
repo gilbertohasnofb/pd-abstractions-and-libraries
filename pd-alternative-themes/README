@@ -1,0 +1,142 @@
+*****************************************************************************************
+|                                                                                       |
+| PD alternative themes                                                                 |
+| by Gilberto Agostinho <gilbertohasnofb@gmail.com>                                     |
+| version 0.1 (13/08/2014)                                                              |
+|                                                                                       |
+*****************************************************************************************
+
+DESCRIPTION
+
+This library contains some new clickable GUI objects and some color schemes for pd-extended (tested with pd-extended 0.43.4 and Linux Mint 17). To see all of them in action, follow the installation steps below and then open the file demonstration.pd, included in this compacted file.
+Because of how the object [image] works (which is responsible for generating the new GUI objects), it is necessary to rewrite each .pd abstraction according to the chosen location on each system in order to add the absolute path of each .GIF image. To do this automatically, I also wrote a small Fortran program named "configure" (instructions below).
+
+THEMES
+
+default : default's pd colour scheme (applied to the new GUI objects as well)
+black-on-white : black and white colors only 
+white-on-black : inverted black and white color scheme, black background, white text
+jMax : blue and yellow theme, inspired by jMax layout
+dark-solarized : dark theme using solarized colours ( http://ethanschoonover.com/solarized )
+light-solarized : light theme using solarized colours ( http://ethanschoonover.com/solarized )
+mint-x : theme based on Linux Mint 17 default's GUI (grey and green)
+ubuntu : theme based on Ubuntu's colours (orange and purple)
+
+INSTALLATION (LINUX)
+
+- extract the compacted files into some temporary location
+- copy the folder "themes" to any location you wish (such as ~/.pd/themes )
+- open the terminal, navigate to this location and type: ./configure (this program will automatically identify the chosen folder and configure the new themes)
+- now it's time to chose a theme in pd: open pd, click in Edit, Preferences, then select New... and navigate to one of the theme folders (such as ~/.pd/themes/jMax )
+- restart pd
+
+If everything went fine with your installation, you should now be able to open the file demonstration.pd without any errors displayed in pd's main window. 
+
+CHANGING A THEME
+
+- to change a theme, open pd, click in Edit, Preferences, then select the current theme path and click Edit...
+- now simply chose the folder of the theme you want to activate  (such as ~/.pd/themes/ubuntu )
+- restart pd
+
+It is ALWAYS necessary to restart pd when changing a theme.
+
+UNINSTALLATION
+
+- delete your themes folder
+- remove its path from pd by clicking in Edit, Preferences, selecting the themes path in the window and clicking Delete
+
+LIST OF OBJECTS
+
+B : Button, equivalent to the standard [bng]
+BL : Large button
+BXL : Extra large button
+N : Node, can be used to change the path cord direction, equivalent to [t a]
+N~ : Same as above, but for signal cord
+T : Toggle, equivalent to the standard [tgl]
+TL : Large toggle
+TXL : Extra large toggle
+zadc~ : Clickable [adc~], also accepts a toggle to control it. When activated, all [zadc~] and [zdac~] are activated together (similar to ezadc~ in Max MSP)
+zdac~ : Clickable [dac~], also accepts a toggle to control it (on its rightmost inlet). When activated, all [zdac~] and [zadc~] are activated together (similar to ezdac~ in Max MSP)
+zhradioN (where N is a number between 2 and 36) : similar to [hradio]. To control its minimal value use [min float( and to set the size of the step use [stepsize float(
+zhslider : similar to [hslider]. Accept messages [min float( and [max float(, default 0-127
+zled : another type of toggle, an LED
+zsolarized : tabble of the color codes for the solarized color scheme. Input a number between 1-16 and the color name and HEX value are printed in the main window
+zspigot : clickable [spigot]
+zspigot~ : clickable [spigot~]
+zswitch2 : 2 state toggle switch
+zswitch2color : 2 state toggle switch
+zswitch3 : 3 state toggle switch
+zswitch3color : 3 state toggle switch
+zvradioN (where N is a number between 2 and 36) : similar to [vradio]. To control its minimal value use [min float( and to set the size of the step use [stepsize float(
+zvslider : similar to [vslider]. Accept messages [min float( and [max float(, default 0-127
+
+CONVERTER
+
+Due to the [image] object needing the whole path of an image, it is impossible to exchange patches between two different systems unless the second system also has this library installed on it. In order to avoid any problems with sharing, I wrote four little programs that will convert any patch using my new GUI objects into a patch that uses only standard pd objects and vice-versa (so you can also "prettify" your older patches). They are located in the folder ./themes, and they are:
+
+z2d : z to default - converts a patch created with pd-alternative-themes GUI objects into a patch using default GUI objects.
+z2d-extra : z to default (with an extra option) - same as above, but this program also forces ALL sliders and radios to be black and white (as with default pd)
+d2z : default to z - converts a patch created with default GUI objects into a patch using pd-alternative-themes GUI objects. It converts buttons, toggles and the color of sliders and radios.
+d2z-extra : default to z (with an extra option) - same as above, but this program also converts the objects adc~, dac~, spigot and spigot~ into their z counterpart. Remember that the sizes of these new objects are different than the default ones, so this exchange can make objects colide, thus worsening the patch layout.
+
+These converters do NOT overwrite the input file: they will create a new file with a suffix -d, -d-extra, -z or -z-extra. Their source code is also included in this file.
+
+Some notes about these converters:
+
+- note that z2d(-extra) converts all [B], [BL] and [BXL] into [bng], but d2z converts [bng] only into [B] (i.e., default to z will never create large and extra large buttons and/or toggles)
+- zhradios and zvradios can take messages such as [min( and [stepsize(, but they will NOT work with regular vradio and hradio. These message boxes will still be connected to the converted objects, but will cause no effect. The user will have then to manually alter the logic of his patch (such as adding a [+ float] object after your converted radio if you used [min float( with the zradio)
+- zhsliders and zvsliders can take messages such as [min( and [max(, but they will NOT work with regular [hsl] and [vsl] objects, even though the message box will still be connected to them. Just like above, you will need to change the logic of the path manually to account for any modification
+- these last two points show that it is better to avoid using [min(, [max( and [stepsize( if you plan to share your patches. In that case, just program it as you'd normally would, but for instance adding an [expr $f1 * a + b] after your radios and sliders
+- after being converted by z2d(-extra), [hsl] and [vsl] will also have their output between 0 and 1, just like the standard of mine zvslider and zhslider. 
+- z2d-extra will convert [zdac~] into [dac~] without any problems, but if an object was previously connected to its rightmost inlet then the connection will no longer exist. This is because [dac~] has 2 signal inlets, while [zdac~] has 2 signal intles plus 1 message inlet
+
+Below, you'll find roughly what these converters do:
+
+-------------------------
+
+z to default:
+
+[B], [BL], [BXL] - [bng]
+[N] - [t a]
+[N~] - [*~ 1]
+[T], [TL], [TXL] - [tgl]
+[zvslider] - [vsl] *
+[zhslider] - [hsl] *
+[zvradioN] - [vradio] *
+[zhradioN] - [hradio] *
+[zdac~] - [dac~] *
+[zadc~] - [adc~]
+[zspigot] - [spigot]
+[zspigot~] - [spigot~]
+[zled], [zswitch2], [zswitch2color] - [tgl]
+[zswitch3], [zswitch3color] - [hradio]
+
+* see NOTES above about the limitation of these conversions
+
+-------------------------
+
+default to z:
+
+[bng] - [B]
+[tgl] - [T]
+[vsl] - color change
+[hsl] - color change
+[vradio] - color change
+[hradio] - color change
+[dac~] - [zdac~] **
+[adc~] - [zadc~] **
+[spigot] - [zspigot] **
+[spigot~] - [zspigot~] **
+
+** only converted when using the -extra version
+
+-------------------------
+
+NOTES
+
+- If you use the completion-plugin, add the file pd-alternative-themes-objects.txt to its completion-plugin-0.42/user_objects folder in order to activate completion for the new objects (tested with version 0.42) 
+- The source code of the Fortran programs are included, as are the GIMP and Inkscape files used to generate the .GIF images. Feel free to play around with them.
+- This library has been tested only with Linux Mint 17 Cinnamon 64-bit, and I cannot guarantee that it will work on Windows, OS X or in any other Linux distro. Try it at your own risk (you may need to recompile or even rewrite some of those Fortran programs).
+- Please use this library at your own risk! I assume no responsability over damaged and/or deleted files, etc.
+- If you find any bugs, I'd be glad to hear about it at gilbertohasnofb@gmail.com
+- That said, enjoy it!

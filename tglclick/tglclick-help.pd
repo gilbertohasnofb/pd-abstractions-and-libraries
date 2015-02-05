@@ -1,0 +1,8 @@
+#N canvas 679 407 432 287 10;
+#X floatatom 38 132 5 0 0 0 - - -;
+#X obj 38 94 tglclick;
+#X text 276 224 by Gilberto Agostinho;
+#X text 63 91 <- left click and hold to keep it checked \, release
+to have it back to 0;
+#X connect 1 0 0 0;
+#X coords 0 0 1 1 8 8 0;

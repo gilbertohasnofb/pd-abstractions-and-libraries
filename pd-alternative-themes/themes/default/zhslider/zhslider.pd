@@ -1,0 +1,21 @@
+#N canvas 430 463 467 372 10;
+#X obj 104 101 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 162 284 outlet;
+#X obj 250 13 inlet;
+#X obj 250 46 route max min;
+#X obj 162 252 expr ($f1 * ($f2 - $f3)) + $f3;
+#X obj 339 113 loadbang;
+#X msg 339 159 0;
+#X msg 278 159 1;
+#X connect 0 0 4 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 1;
+#X connect 3 1 4 2;
+#X connect 3 2 0 0;
+#X connect 4 0 1 0;
+#X connect 5 0 6 0;
+#X connect 5 0 7 0;
+#X connect 6 0 4 2;
+#X connect 7 0 4 1;
+#X coords 0 -1 1 1 135 17 2 100 100;

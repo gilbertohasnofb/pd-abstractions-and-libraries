@@ -1,0 +1,15 @@
+#N canvas 674 429 619 385 10;
+#X obj 102 102 tgl 86 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1;
+#X msg 239 160 open \$1.gif;
+#X msg 102 54 0;
+#X obj 102 16 loadbang;
+#X obj 140 55 inlet;
+#X obj 145 145 image 0.gif;
+#X obj 102 207 outlet;
+#X connect 0 0 1 0;
+#X connect 0 0 6 0;
+#X connect 1 0 5 0;
+#X connect 2 0 0 0;
+#X connect 3 0 2 0;
+#X connect 4 0 0 0;
+#X coords 0 -1 1 1 89 89 2 100 100;
