@@ -1,0 +1,16 @@
+#N canvas 710 340 450 300 10;
+#X obj 189 75 bng 15 250 50 0 \$0-bngSend \$0-bngReceive empty 17 7
+0 10 -262144 -1 -1;
+#X obj 216 132 r \$0-bngSend;
+#X obj 216 174 vline~;
+#X obj 139 132 osc~ 440;
+#X obj 139 202 *~;
+#X obj 139 226 outlet~;
+#X text 310 251 by Gilberto Agostinho;
+#X msg 216 153 0 \, 1 25 0 \, 0 25 25;
+#X connect 1 0 7 0;
+#X connect 2 0 4 1;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 7 0 2 0;
+#X coords 0 -1 1 1 55 19 1 151 73;
