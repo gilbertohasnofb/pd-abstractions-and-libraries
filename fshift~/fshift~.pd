@@ -1,0 +1,11 @@
+#N canvas 1 80 450 300 10;
+#X obj 158 111 hilbert~;
+#X obj 158 133 complex-mod~;
+#X obj 158 155 outlet~;
+#X obj 158 89 inlet~;
+#X obj 227 89 inlet~;
+#X connect 0 0 1 0;
+#X connect 0 1 1 1;
+#X connect 1 0 2 0;
+#X connect 3 0 0 0;
+#X connect 4 0 1 2;

@@ -1,0 +1,28 @@
+#N canvas 1 80 623 500 10;
+#X obj 179 111 fshift~, f 16;
+#X floatatom 272 87 5 0 0 0 - - -, f 5;
+#X obj 335 111 fshift~, f 16;
+#X obj 179 90 osc~ 220;
+#X obj 428 88 line~;
+#X obj 108 263 spectrogram~;
+#X obj 179 172 multiplex~;
+#X obj 179 205 output~;
+#X obj 141 143 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 335 90 phasor~ 1000;
+#X msg 428 67 0 \, 800 3000;
+#X text 75 142 source 1-2;
+#X text 210 62 source 1;
+#X text 358 58 source 2;
+#X text 504 67 <- click here to sweep;
+#X connect 0 0 6 0;
+#X connect 1 0 0 1;
+#X connect 2 0 6 1;
+#X connect 3 0 0 0;
+#X connect 4 0 2 1;
+#X connect 6 0 7 0;
+#X connect 6 0 7 1;
+#X connect 6 0 5 0;
+#X connect 8 0 6 0;
+#X connect 9 0 2 0;
+#X connect 10 0 4 0;
