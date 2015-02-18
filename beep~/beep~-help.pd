@@ -1,0 +1,10 @@
+#N canvas 710 340 450 300 10;
+#X text 310 251 by Gilberto Agostinho;
+#X obj 133 102 beep~;
+#X obj 133 126 *~ 0.3;
+#X obj 133 147 dac~;
+#X text 196 104 <- bang to beep!;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 2 0 3 1;
+#X coords 0 0 1 1 55 19 0;
