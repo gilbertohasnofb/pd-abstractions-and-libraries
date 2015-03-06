@@ -1,0 +1,16 @@
+#N canvas 398 410 607 300 10;
+#X obj 36 168 output~;
+#X text 29 16 sinusoids~ : oscillator bankarguments are frequency
+and amplitude pairs (up to 10 pairs). Inlet receives list of frequency
+and amplitude pairs (up to 50 pairs).;
+#X obj 289 124 loadbang;
+#X msg 289 145 220 0.3 257 0.2 417 0.75 1030 0.33 2876 0.1;
+#X obj 289 166 sinusoids~;
+#X obj 289 187 output~;
+#X obj 35 129 sinusoids~ 440 0.5 550 0.3 660 0.2;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 4 0 5 1;
+#X connect 6 0 0 0;
+#X connect 6 0 0 1;
