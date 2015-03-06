@@ -8,6 +8,7 @@ and amplitude pairs (up to 50 pairs).;
 #X obj 289 166 sinusoids~;
 #X obj 289 187 output~;
 #X obj 35 129 sinusoids~ 440 0.5 550 0.3 660 0.2;
+#X text 426 259 by Gilberto Agostinho;
 #X connect 2 0 3 0;
 #X connect 3 0 4 0;
 #X connect 4 0 5 0;
