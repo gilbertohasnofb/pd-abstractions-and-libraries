@@ -1,18 +1,28 @@
-#N canvas 398 410 607 300 10;
-#X obj 36 168 output~;
-#X obj 289 124 loadbang;
-#X obj 289 187 output~;
-#X text 426 259 by Gilberto Agostinho;
-#X obj 35 129 harmonics~ 220 0.3 1 0.3;
-#X obj 289 166 harmonics~;
-#X msg 289 145 117 0.2 0.55 0.4 0.67 0.13 0.22 0.14 0.1 0.02 0.6;
-#X text 29 16 harmonics~ : oscillator bank arguments are frequency
-and amplitudes of fundamental and up to 9 overtones. Inlet receives
-list of frequency and up to 50 amplitudes (fundamental + 49 partials).
-;
-#X connect 1 0 6 0;
-#X connect 4 0 0 0;
-#X connect 4 0 0 1;
-#X connect 5 0 2 0;
-#X connect 5 0 2 1;
-#X connect 6 0 5 0;
+#N canvas 394 412 607 360 10;
+#X obj 32 266 output~;
+#X text 465 308 by Gilberto Agostinho;
+#X msg 62 184 clear;
+#X msg 46 161 440 0.3;
+#X obj 558 13 dsp;
+#X floatatom 558 34 5 0 0 0 - - -, f 5;
+#X text 103 162 a single frequency;
+#X text 107 185 this message will silent all oscillators;
+#X text 29 2 harmonics~ : oscillator bank;
+#X text 29 19 inlet: list containing one single frequency followed
+by a series of amplitudes (fundamental + n overtones). Default [harmonics~]
+can handle up to 31 harmonics + fundamental \, but if more oscillators
+are needed \, then use [harmonics.64~] \, [harmonics.128~] \, [harmonics.256~]
+\, [harmonics.512~] or [harmonics.1024~]. Warning: the more oscillators
+the more CPU load. A message [clear( can also be sent to the inlet
+to clear all oscillators.;
+#X msg 32 138 220 0.3 0.2 0.75 0.33 0.1;
+#X msg 68 206 220 0.2 0.2 0.2;
+#X text 196 138 fundamental and list of amplitudes;
+#X obj 32 235 harmonics.1024~;
+#X connect 2 0 13 0;
+#X connect 3 0 13 0;
+#X connect 4 0 5 0;
+#X connect 10 0 13 0;
+#X connect 11 0 13 0;
+#X connect 13 0 0 0;
+#X connect 13 0 0 1;
