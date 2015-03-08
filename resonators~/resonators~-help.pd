@@ -1,0 +1,54 @@
+#N canvas 710 340 729 549 10;
+#X obj 84 444 resonators~;
+#X obj 84 475 output~;
+#X obj 110 255 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 83 208 0.4 5000;
+#X msg 147 404 256 0.4 440 0.3 467 0.1;
+#X msg 167 424 155 0.5 197 0.2 465 0.3 1331 0.1;
+#X msg 125 278 attack 200 \, 0.8 500;
+#X text 298 404 sound 1;
+#X text 372 424 sound 2;
+#X obj 147 382 loadbang;
+#X text 253 278 attack n changes the attack duration (default = 20ms)
+;
+#X msg 135 303 attack 20 \, 0.8 500;
+#X text 256 303 reset attack back to 20 ms;
+#X text 145 208 max amplitude and duration;
+#X msg 93 231 0.8;
+#X text 130 254 max amplitude = 1 and with default duration;
+#X text 563 501 by Gilberto Agostinho;
+#X obj 641 12 dsp;
+#X floatatom 641 33 5 0 0 0 - - -, f 5;
+#X text 81 7 resonators~ : generates a quadratic decay for an anoscillator
+bank;
+#X text 81 37 inlet 1: pair of amplitude an duration of a sound or
+just amplitude with default duration. A bang is interpreted as amplitude
+= 1 Attack period and default duration can be changed via [attack <n>(
+and [duration <n>( \, where <n> is a value in miliseconds.;
+#X text 81 106 inlet 2: list of frequency and amplitude pairs. Default
+[resonators~] can take up to 32 pairs \, but if more oscillators are
+needed \, then use [resonators.64~] \, [resonators.128~] \, [resonators.256~]
+\, [resonators.512~] or [resonators.1024~]. Warning: the more oscillators
+the more CPU load. A message [clear( can also be sent to the inlet
+to clear all oscillators.;
+#X text 127 231 max amplitude with default duration duration (500 ms)
+;
+#X text 276 350 reset default duration back to 500 ms;
+#X msg 155 349 duration 500 \, 0.3;
+#X msg 145 326 duration 100 \, bang;
+#X text 273 325 duration n changes the default duration (default =
+500ms);
+#X connect 0 0 1 0;
+#X connect 0 0 1 1;
+#X connect 2 0 0 0;
+#X connect 3 0 0 0;
+#X connect 4 0 0 1;
+#X connect 5 0 0 1;
+#X connect 6 0 0 0;
+#X connect 9 0 4 0;
+#X connect 11 0 0 0;
+#X connect 14 0 0 0;
+#X connect 17 0 18 0;
+#X connect 24 0 0 0;
+#X connect 25 0 0 0;
