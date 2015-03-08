@@ -1,30 +1,30 @@
-#N canvas 842 341 480 555 10;
-#X obj 683 -402 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#N canvas 840 342 480 555 10;
+#X obj 43 -382 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 683 -382 openpanel;
-#X msg 683 -361 open \$1 \, 1;
-#X obj 683 -340 readsf~;
-#X obj 789 -339 multiplex~;
-#X obj 866 -360 noise~;
-#X obj 769 -361 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+#X obj 43 -362 openpanel;
+#X msg 43 -341 open \$1 \, 1;
+#X obj 43 -320 readsf~;
+#X obj 149 -319 multiplex~;
+#X obj 226 -340 noise~;
+#X obj 129 -341 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
 0 1;
-#X obj 683 -168 output~;
-#X obj 788 -219 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+#X obj 43 -148 output~;
+#X obj 148 -199 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
 1 1;
-#X obj 788 -241 ii 1;
-#X obj 896 -307 hsl 48 15 0 1 0 1 empty empty empty -2 -8 0 10 -262144
+#X obj 148 -221 ii 1;
+#X obj 256 -287 hsl 48 15 0 1 0 1 empty empty empty -2 -8 0 10 -262144
 -1 -1 3900 1;
-#X obj 683 -264 convol~ 8192, f 36;
-#X obj 789 -360 phasor~ 170;
-#X text 953 -308 gain;
-#X text 736 52 by Gilberto Agostinho \, based on https://vimeo.com/42305687
+#X obj 43 -244 convol~ 8192;
+#X obj 149 -340 phasor~ 170;
+#X text 313 -288 gain;
+#X text 96 72 by Gilberto Agostinho \, based on https://vimeo.com/42305687
 ;
 #N canvas 0 0 450 300 (subpatch) 0;
-#X array array 1000 float 0 black black;
+#X array array 1000 float 0;
 #X coords 0 1 999 -1 160 100 1;
-#X restore 699 -96 graph;
-#X obj 788 -158 tabwrite~ array;
-#X obj 788 -199 metro 40;
+#X restore 59 -76 graph;
+#X obj 148 -138 tabwrite~ array;
+#X obj 148 -179 metro 40;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
 #X connect 2 0 3 0;
