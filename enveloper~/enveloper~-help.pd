@@ -1,0 +1,55 @@
+#N canvas 710 340 729 549 10;
+#X obj 84 488 output~;
+#X obj 110 268 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 83 221 0.4 5000;
+#X msg 147 417 256 0.4 440 0.3 467 0.1;
+#X msg 167 437 155 0.5 197 0.2 465 0.3 1331 0.1;
+#X msg 125 291 attack 200 \, 0.8 500;
+#X text 298 417 sound 1;
+#X text 372 437 sound 2;
+#X obj 147 395 loadbang;
+#X text 253 291 attack n changes the attack duration (default = 20ms)
+;
+#X msg 135 316 attack 20 \, 0.8 500;
+#X text 256 316 reset attack back to 20 ms;
+#X text 145 221 max amplitude and duration;
+#X msg 93 244 0.8;
+#X text 130 267 max amplitude = 1 and with default duration;
+#X text 563 501 by Gilberto Agostinho;
+#X obj 641 12 dsp;
+#X floatatom 641 33 5 0 0 0 - - -, f 5;
+#X text 127 244 max amplitude with default duration duration (500 ms)
+;
+#X text 276 363 reset default duration back to 500 ms;
+#X msg 155 362 duration 500 \, 0.3;
+#X msg 145 339 duration 100 \, bang;
+#X text 273 338 duration n changes the default duration (default =
+500ms);
+#X obj 84 457 enveloper~;
+#X text 81 119 inlet 2: list of frequency and amplitude pairs. Default
+[enveloper~] can take up to 32 pairs \, but if more oscillators are
+needed \, then use [enveloper.64~] \, [enveloper.128~] \, [enveloper.256~]
+\, [enveloper.512~] or [enveloper.1024~]. Warning: the more oscillators
+the more CPU load. A message [clear( can also be sent to the inlet
+to clear all oscillators.;
+#X text 81 7 enveloper~ : generates a quadratic decaying envelope for
+an oscillator bank;
+#X text 81 37 inlet 1: pair of amplitude an duration of a sound or
+just amplitude with default duration. A bang is interpreted as amplitude
+= 1 Attack period and default duration can be changed via [attack <n>(
+and [duration <n>( \, where <n> is a value in miliseconds. (default
+values: attack 20ms \, default duration 500ms.;
+#X connect 1 0 23 0;
+#X connect 2 0 23 0;
+#X connect 3 0 23 1;
+#X connect 4 0 23 1;
+#X connect 5 0 23 0;
+#X connect 8 0 3 0;
+#X connect 10 0 23 0;
+#X connect 13 0 23 0;
+#X connect 16 0 17 0;
+#X connect 20 0 23 0;
+#X connect 21 0 23 0;
+#X connect 23 0 0 0;
+#X connect 23 0 0 1;
