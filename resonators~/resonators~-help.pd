@@ -1,11 +1,11 @@
-#N canvas 920 70 729 734 10;
+#N canvas 259 222 729 734 10;
 #X obj 84 635 output~;
 #X text 458 564 sound 1;
 #X text 537 584 sound 2;
 #X obj 207 542 loadbang;
 #X text 582 692 by Gilberto Agostinho;
 #X obj 641 12 dsp;
-#X floatatom 641 33 5 0 0 0 - - -, f 5;
+#X floatatom 641 33 5 0 0 0 - - -;
 #X obj 83 289 readsf~;
 #X msg 227 584 155 0.5 197 0.2 465 0.3 867 0.3 1331 0.1 4453 0.2;
 #X msg 83 268 open gong.wav \, 1;
@@ -15,12 +15,6 @@
 1;
 #X text 81 7 resonators~ : resonates an oscillator bank according to
 an incoming signal;
-#X text 81 150 inlet 3: list of frequency and amplitude pairs. Default
-[resonators~] can take up to 32 pairs \, but if more oscillators are
-needed \, then use [resonators.64~] \, [resonators.128~] \, [resonators.256~]
-\, [resonators.512~] or [resonators.1024~]. Warning: the more oscillators
-the more CPU load. A message [clear( can also be sent to the inlet
-to clear all oscillators.;
 #X text 81 37 inlet 1: signal which will excite the oscillator bank
 ;
 #X text 81 54 inlet 2: another method of exciting the bank. Use a pair
@@ -49,22 +43,27 @@ default duration can be changed via [attack <n>( and [duration <n>(
 500ms);
 #X text 192 269 <- click here to activate the gong;
 #X obj 141 310 noise~;
-#X obj 84 604 resonators.1024~;
+#X obj 84 604 resonators~;
+#X text 81 150 inlet 3: list of frequency and amplitude pairs. Default
+[resonators~] can take up to 32 pairs \, but if more oscillators are
+needed \, then use [resonators.64~] or [resonators.128~]. Warning:
+the more oscillators the more CPU load. A message [clear( can also
+be sent to the inlet to clear all oscillators.;
 #X connect 3 0 10 0;
 #X connect 5 0 6 0;
 #X connect 7 0 11 0;
-#X connect 8 0 33 2;
+#X connect 8 0 32 2;
 #X connect 9 0 7 0;
-#X connect 10 0 33 2;
-#X connect 11 0 33 0;
+#X connect 10 0 32 2;
+#X connect 11 0 32 0;
 #X connect 12 0 11 0;
-#X connect 17 0 33 1;
-#X connect 18 0 33 1;
-#X connect 19 0 33 1;
-#X connect 21 0 33 1;
-#X connect 24 0 33 1;
-#X connect 28 0 33 1;
-#X connect 29 0 33 1;
-#X connect 32 0 11 1;
-#X connect 33 0 0 0;
-#X connect 33 0 0 1;
+#X connect 16 0 32 1;
+#X connect 17 0 32 1;
+#X connect 18 0 32 1;
+#X connect 20 0 32 1;
+#X connect 23 0 32 1;
+#X connect 27 0 32 1;
+#X connect 28 0 32 1;
+#X connect 31 0 11 1;
+#X connect 32 0 0 0;
+#X connect 32 0 0 1;

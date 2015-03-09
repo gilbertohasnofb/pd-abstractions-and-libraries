@@ -1,4 +1,4 @@
-#N canvas 710 340 729 549 10;
+#N canvas 708 341 729 549 10;
 #X obj 84 488 output~;
 #X obj 110 268 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
@@ -18,7 +18,7 @@
 #X text 130 267 max amplitude = 1 and with default duration;
 #X text 563 501 by Gilberto Agostinho;
 #X obj 641 12 dsp;
-#X floatatom 641 33 5 0 0 0 - - -, f 5;
+#X floatatom 641 33 5 0 0 0 - - -;
 #X text 127 244 max amplitude with default duration duration (500 ms)
 ;
 #X text 276 363 reset default duration back to 500 ms;
@@ -27,12 +27,6 @@
 #X text 273 338 duration n changes the default duration (default =
 500ms);
 #X obj 84 457 enveloper~;
-#X text 81 119 inlet 2: list of frequency and amplitude pairs. Default
-[enveloper~] can take up to 32 pairs \, but if more oscillators are
-needed \, then use [enveloper.64~] \, [enveloper.128~] \, [enveloper.256~]
-\, [enveloper.512~] or [enveloper.1024~]. Warning: the more oscillators
-the more CPU load. A message [clear( can also be sent to the inlet
-to clear all oscillators.;
 #X text 81 7 enveloper~ : generates a quadratic decaying envelope for
 an oscillator bank;
 #X text 81 37 inlet 1: pair of amplitude an duration of a sound or
@@ -40,6 +34,11 @@ just amplitude with default duration. A bang is interpreted as amplitude
 = 1 Attack period and default duration can be changed via [attack <n>(
 and [duration <n>( \, where <n> is a value in miliseconds. (default
 values: attack 20ms \, default duration 500ms.;
+#X text 81 119 inlet 2: list of frequency and amplitude pairs. Default
+[enveloper~] can take up to 32 pairs \, but if more oscillators are
+needed \, then use [enveloper.64~] or [enveloper.128~]. Warning: the
+more oscillators the more CPU load. A message [clear( can also be sent
+to the inlet to clear all oscillators.;
 #X connect 1 0 23 0;
 #X connect 2 0 23 0;
 #X connect 3 0 23 1;

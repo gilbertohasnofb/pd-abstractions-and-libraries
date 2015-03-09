@@ -1,4 +1,4 @@
-#N canvas 394 412 607 360 10;
+#N canvas 390 414 607 360 10;
 #X msg 32 138 220 0.3 257 0.2 417 0.75 1030 0.33 2876 0.1;
 #X obj 32 266 output~;
 #X text 465 308 by Gilberto Agostinho;
@@ -6,22 +6,21 @@
 #X msg 46 161 440 0.3;
 #X msg 68 206 220 0.2 275 0.2 330 0.2;
 #X obj 558 13 dsp;
-#X floatatom 558 34 5 0 0 0 - - -, f 5;
+#X floatatom 558 34 5 0 0 0 - - -;
 #X text 29 2 sinusoids~ : oscillator bank;
-#X obj 32 235 sinusoids~;
 #X text 306 138 list of frequencies and amplitudes;
 #X text 103 161 a single frequency;
 #X text 107 184 this message will silent all oscillators;
+#X obj 32 235 sinusoids~;
 #X text 29 19 inlet: list of frequency and amplitude pairs. Default
 [sinusoids~] can take up to 32 pairs \, but if more oscillators are
-needed \, then use [sinusoids.64~] \, [sinusoids.128~] \, [sinusoids.256~]
-\, [sinusoids.512~] or [sinusoids.1024~]. Warning: the more oscillators
-the more CPU load. A message [clear( can also be sent to the inlet
-to clear all oscillators.;
-#X connect 0 0 9 0;
-#X connect 3 0 9 0;
-#X connect 4 0 9 0;
-#X connect 5 0 9 0;
+needed \, then use [sinusoids.64~] or [sinusoids.128~]. Warning: the
+more oscillators the more CPU load. A message [clear( can also be sent
+to the inlet to clear all oscillators.;
+#X connect 0 0 12 0;
+#X connect 3 0 12 0;
+#X connect 4 0 12 0;
+#X connect 5 0 12 0;
 #X connect 6 0 7 0;
-#X connect 9 0 1 0;
-#X connect 9 0 1 1;
+#X connect 12 0 1 0;
+#X connect 12 0 1 1;
