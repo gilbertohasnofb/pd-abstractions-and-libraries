@@ -1,15 +1,15 @@
-#N canvas 259 222 729 734 10;
-#X obj 84 635 output~;
-#X text 458 564 sound 1;
-#X text 537 584 sound 2;
-#X obj 207 542 loadbang;
-#X text 582 692 by Gilberto Agostinho;
+#N canvas 259 222 729 786 10;
+#X obj 84 645 output~;
+#X text 458 554 sound 1;
+#X text 537 574 sound 2;
+#X obj 207 532 loadbang;
+#X text 590 748 by Gilberto Agostinho;
 #X obj 641 12 dsp;
-#X floatatom 641 33 5 0 0 0 - - -;
-#X obj 83 289 readsf~;
-#X msg 227 584 155 0.5 197 0.2 465 0.3 867 0.3 1331 0.1 4453 0.2;
-#X msg 83 268 open gong.wav \, 1;
-#X msg 207 564 256 0.4 440 0.3 467 0.1 503 0.3 1277 0.4;
+#X floatatom 641 33 5 0 0 0 - - -, f 5;
+#X obj 83 309 readsf~;
+#X msg 227 574 155 0.5 197 0.2 465 0.3 867 0.3 1331 0.1 4453 0.2;
+#X msg 83 288 open gong.wav \, 1;
+#X msg 207 554 256 0.4 440 0.3 467 0.1 503 0.3 1277 0.4;
 #X obj 84 330 multiplex~;
 #X obj 53 309 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
@@ -41,14 +41,22 @@ default duration can be changed via [attack <n>( and [duration <n>(
 #X msg 179 482 duration 100 \, bang;
 #X text 305 481 duration n changes the default duration (default =
 500ms);
-#X text 192 269 <- click here to activate the gong;
+#X text 192 289 <- click here to activate the gong;
 #X obj 141 310 noise~;
-#X obj 84 604 resonators~;
-#X text 81 150 inlet 3: list of frequency and amplitude pairs. Default
+#X obj 84 614 resonators~;
+#X text 81 149 inlet 3: list of frequency and amplitude pairs. Default
 [resonators~] can take up to 32 pairs \, but if more oscillators are
 needed \, then use [resonators.64~] or [resonators.128~]. Warning:
 the more oscillators the more CPU load. A message [clear( can also
 be sent to the inlet to clear all oscillators.;
+#X obj 445 714 resonators~ 500;
+#X text 78 707 to initialize resonator with a different Q \, use an
+argument (default = 2000):;
+#X floatatom 266 607 5 0 0 0 - - -, f 5;
+#X text 304 608 Q (default = 2000);
+#X text 81 231 inlet 4: a float to control the Q of the resonant filter.
+Also note that the Q can be initialized via an argument. Default value
+= 2000;
 #X connect 3 0 10 0;
 #X connect 5 0 6 0;
 #X connect 7 0 11 0;
@@ -67,3 +75,4 @@ be sent to the inlet to clear all oscillators.;
 #X connect 31 0 11 1;
 #X connect 32 0 0 0;
 #X connect 32 0 0 1;
+#X connect 36 0 32 3;
