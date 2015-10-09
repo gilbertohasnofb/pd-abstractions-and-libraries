@@ -1,0 +1,31 @@
+#N canvas 808 269 681 556 10;
+#X obj 69 41 ii 1;
+#X obj 69 87 counter 1 8;
+#X obj 69 110 sel 1 2 3 4 5 6 7 8;
+#X obj 69 64 metro 500;
+#X msg 69 153 60 127;
+#X obj 69 211 piano_roll;
+#X msg 119 153 77 64;
+#X msg 169 153 50 86;
+#X msg 219 153 89 100;
+#X text 63 462 limitations: ignores note-offs \, so a short note will
+be continuously displayed until the next note arises;
+#X text 276 152 <- pairs of MIDI notes and velocities. This object
+also accepts just a MIDI note value without velocity;
+#X text 291 270 <- scroll this to control the speed;
+#X text 535 499 by Gilberto Agostinho;
+#X text 62 406 IMPORTANT NOTE: this abstraction needs the object [tabletool]
+available at: http://williambrent.conflations.com/pages/research.html
+;
+#X connect 0 0 3 0;
+#X connect 1 0 2 0;
+#X connect 2 0 4 0;
+#X connect 2 2 6 0;
+#X connect 2 5 7 0;
+#X connect 2 6 8 0;
+#X connect 3 0 1 0;
+#X connect 4 0 5 0;
+#X connect 6 0 5 0;
+#X connect 7 0 5 0;
+#X connect 8 0 5 0;
+#X coords 0 0 1 1 218 140 0;
