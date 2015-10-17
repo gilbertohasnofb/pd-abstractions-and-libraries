@@ -1,4 +1,4 @@
-#N canvas 753 338 779 451 10;
+#N canvas 751 339 779 451 10;
 #X obj 186 133 hsl 128 15 0 20 0 0 empty sl1 empty -2 -8 0 10 -262144
 -1 -1 0 1;
 #X obj 43 298 output~;
@@ -12,30 +12,32 @@
 #X text 322 204 higher boundary;
 #X text 41 16 specgate~ : a spectral gate. Can take two argument for
 lower and higher boundaries \, which can also be set using inlets;
-#X text 409 343 by Gilberto Agostinho;
+#X text 389 333 by Gilberto Agostinho;
 #X msg 43 107 open numbers.wav \, 1;
 #X obj 537 246 unpack f f;
 #X obj 537 269 s sl1;
 #X obj 594 269 s sl2;
-#X msg 537 120 0 0.866;
 #X msg 577 208 2.362 2.677;
-#X msg 547 142 8.661 20;
 #X msg 557 164 1.417 2.755;
 #X msg 567 186 5.669 10.7;
 #X text 452 87 Some preset examples (click on the messages below);
-#X text 409 363 based on dude837's "Delicious Max/MSP Tutorial 12:
+#X text 389 353 based on dude837's "Delicious Max/MSP Tutorial 12:
 Pfft~ is your friend" \, available at https://www.youtube.com/watch?v=69A1kGNFYIc
 ;
 #X obj 182 182 ii 20;
 #X obj 43 255 specgate~ 0 20;
-#X text 10 372 IMPORTANT!: this version of specgate~ compensates for
-a bug currently present with the object [cartopol~] in pd-extended
-0.43.4;
+#X msg 537 120 9.76 11.18;
+#X msg 547 142 14 20;
+#X text 12 346 IMPORTANT!: this version of specgate~ compensates for
+a bug currently present with the object [cartopol~] in the cyclone
+library included with pd-extended 0.43.4. If you are using the most
+recent cyclone library \, please the abstraction included in the folder
+"bugless";
 #X connect 0 0 3 0;
-#X connect 2 0 23 0;
+#X connect 2 0 21 0;
 #X connect 2 1 11 0;
-#X connect 3 0 23 1;
-#X connect 4 0 23 2;
+#X connect 3 0 21 1;
+#X connect 4 0 21 2;
 #X connect 5 0 11 0;
 #X connect 6 0 4 0;
 #X connect 11 0 2 0;
@@ -44,8 +46,8 @@ a bug currently present with the object [cartopol~] in pd-extended
 #X connect 15 0 12 0;
 #X connect 16 0 12 0;
 #X connect 17 0 12 0;
-#X connect 18 0 12 0;
-#X connect 19 0 12 0;
-#X connect 22 0 6 0;
-#X connect 23 0 1 0;
-#X connect 23 0 1 1;
+#X connect 20 0 6 0;
+#X connect 21 0 1 0;
+#X connect 21 0 1 1;
+#X connect 22 0 12 0;
+#X connect 23 0 12 0;
