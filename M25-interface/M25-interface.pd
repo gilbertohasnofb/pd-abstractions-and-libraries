@@ -1,0 +1,292 @@
+#N canvas 364 103 1349 817 10;
+#X obj 816 281 notein, f 27;
+#X obj 63 249 ctlin;
+#X obj 1003 280 pgmin;
+#X obj 1106 274 bendin;
+#X obj 80 35 polytouchin;
+#X obj 979 64 sysexin;
+#X obj 52 617 vsl 20 128 -8192 8192 0 0 \$0-foobar M25-pitchbend empty
+0 -9 0 10 -262144 -1 -1 6350 1;
+#X obj 82 617 vsl 20 128 0 127 0 0 \$0-foobar M25-mod empty 0 -9 0
+10 -262144 -1 -1 0 1;
+#X obj 63 279 pack f f f;
+#X msg 63 301 \$2 \$3 \$1;
+#X obj 63 345 unpack f f;
+#X obj 196 384 route 1 2 3 4 5 6 7 8 9, f 30;
+#X obj 120 370 s M25-mod;
+#X obj 1106 302 s M25-pitchbend;
+#X obj 196 406 s M25-knob1;
+#X obj 214 426 s M25-knob2;
+#X obj 234 446 s M25-knob3;
+#X obj 256 466 s M25-knob4;
+#X obj 273 406 s M25-knob5;
+#X obj 292 426 s M25-knob6;
+#X obj 312 446 s M25-knob7;
+#X obj 332 466 s M25-knob8;
+#X obj 353 406 s M25-maindial;
+#X obj 198 570 moonlib/mknob 25 100 0 127 0 0 \$0-foobar M25-knob1
+empty -2 -6 0 8 -262144 -1 -1 0 1;
+#X obj 231 570 moonlib/mknob 25 100 0 127 0 0 \$0-foobar M25-knob2
+empty -2 -6 0 8 -262144 -1 -1 0 1;
+#X obj 264 570 moonlib/mknob 25 100 0 127 0 0 \$0-foobar M25-knob3
+empty -2 -6 0 8 -262144 -1 -1 0 1;
+#X obj 297 570 moonlib/mknob 25 100 0 127 0 0 \$0-foobar M25-knob4
+empty -2 -6 0 8 -262144 -1 -1 0 1;
+#X obj 198 600 moonlib/mknob 25 100 0 127 0 0 \$0-foobar M25-knob5
+empty -2 -6 0 8 -262144 -1 -1 0 1;
+#X obj 231 600 moonlib/mknob 25 100 0 127 0 0 \$0-foobar M25-knob6
+empty -2 -6 0 8 -262144 -1 -1 0 1;
+#X obj 264 600 moonlib/mknob 25 100 0 127 0 0 \$0-foobar M25-knob7
+empty -2 -6 0 8 -262144 -1 -1 0 1;
+#X obj 297 600 moonlib/mknob 25 100 0 127 0 0 \$0-foobar M25-knob8
+empty -2 -6 0 8 -262144 -1 -1 0 1;
+#X obj 134 570 moonlib/mknob 42 100 0 127 0 0 \$0-foobar M25-maindial
+empty -2 -6 0 8 -262144 -1 -1 0 1;
+#X obj 122 632 tgl 20 0 \$0-foobar M25-sus Sustain 29 10 0 10 -262144
+-1 -1 0 127;
+#X obj 331 345 unpack f f;
+#X obj 388 370 s M25-sus;
+#X obj 346 570 tgl 25 0 \$0-foobar M25-pad1 empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X floatatom 346 599 5 0 0 0 - M25-pad1touch #0-foobar, f 5;
+#X obj 382 570 tgl 25 0 \$0-foobar M25-pad2 empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X floatatom 382 599 5 0 0 0 - M25-pad2touch #0-foobar, f 5;
+#X obj 418 570 tgl 25 0 \$0-foobar M25-pad3 empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X floatatom 418 599 5 0 0 0 - M25-pad3touch #0-foobar, f 5;
+#X obj 454 570 tgl 25 0 \$0-foobar M25-pad4 empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X floatatom 454 599 5 0 0 0 - M25-pad4touch #0-foobar, f 5;
+#X obj 80 77 pack f f;
+#X msg 80 99 \$2 \$1;
+#X obj 80 143 s M25-pad1touch;
+#X obj 184 143 s M25-pad2touch;
+#X obj 289 143 s M25-pad3touch;
+#X obj 394 143 s M25-pad4touch;
+#X obj 96 164 > 0;
+#X obj 96 186 s M25-pad1;
+#X obj 196 164 > 0;
+#X obj 306 164 > 0;
+#X obj 406 164 > 0;
+#X obj 196 186 s M25-pad2;
+#X obj 306 186 s M25-pad3;
+#X obj 406 186 s M25-pad4;
+#X obj 346 650 tgl 25 0 \$0-foobar M25-pad1PAD empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X floatatom 346 679 5 0 0 0 - M25-pad1PADtouch #0-foobar, f 5;
+#X obj 382 650 tgl 25 0 \$0-foobar M25-pad2PAD empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X floatatom 382 679 5 0 0 0 - M25-pad2PADtouch #0-foobar, f 5;
+#X obj 418 650 tgl 25 0 \$0-foobar M25-pad3PAD empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X floatatom 418 679 5 0 0 0 - M25-pad3PADtouch #0-foobar, f 5;
+#X obj 454 650 tgl 25 0 \$0-foobar M25-pad4PAD empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X floatatom 454 679 5 0 0 0 - M25-pad4PADtouch #0-foobar, f 5;
+#X obj 80 121 route 36 38 40 42 41 43 45 46, f 140;
+#X obj 514 164 > 0;
+#X obj 616 184 > 0;
+#X obj 724 164 > 0;
+#X obj 826 184 > 0;
+#X floatatom 244 59 5 0 0 0 - - -, f 5;
+#X floatatom 195 62 5 0 0 0 - - -, f 5;
+#X floatatom 288 56 5 0 0 0 - - -, f 5;
+#X floatatom 245 276 5 0 0 0 - - -, f 5;
+#X floatatom 196 279 5 0 0 0 - - -, f 5;
+#X floatatom 289 273 5 0 0 0 - - -, f 5;
+#X floatatom 123 658 5 0 0 1 Prog M25-program #0-foobar, f 5;
+#X obj 519 401 > 0;
+#X obj 519 423 s M25-pad1CC;
+#X obj 462 379 unpack f f;
+#X obj 522 572 tgl 25 0 \$0-foobar M25-pad1CC empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X obj 558 572 tgl 25 0 \$0-foobar M25-pad2CC empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X obj 594 572 tgl 25 0 \$0-foobar M25-pad3CC empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X obj 630 572 tgl 25 0 \$0-foobar M25-pad4CC empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X obj 603 401 > 0;
+#X obj 546 379 unpack f f;
+#X obj 603 423 s M25-pad2CC;
+#X obj 687 401 > 0;
+#X obj 630 379 unpack f f;
+#X obj 771 401 > 0;
+#X obj 714 379 unpack f f;
+#X obj 687 423 s M25-pad3CC;
+#X obj 771 423 s M25-pad4CC;
+#X text 378 553 without PAD;
+#X text 386 633 with PAD;
+#X text 564 555 with CC;
+#X obj 63 323 route 1 7 64, f 67;
+#X obj 462 351 route 20 21 22 23 24 25 26 27, f 113;
+#X obj 514 186 s M25-pad1PAD;
+#X obj 616 206 s M25-pad2PAD;
+#X obj 724 186 s M25-pad3PAD;
+#X obj 826 206 s M25-pad4PAD;
+#X obj 498 143 s M25-pad1PADtouch;
+#X obj 604 163 s M25-pad2PADtouch;
+#X obj 707 143 s M25-pad3PADtouch;
+#X obj 814 163 s M25-pad4PADtouch;
+#X obj 856 401 > 0;
+#X obj 799 379 unpack f f;
+#X obj 940 401 > 0;
+#X obj 883 379 unpack f f;
+#X obj 1024 401 > 0;
+#X obj 967 379 unpack f f;
+#X obj 1108 401 > 0;
+#X obj 1051 379 unpack f f;
+#X obj 856 443 s M25-pad1CCPAD;
+#X obj 940 423 s M25-pad2CCPAD;
+#X obj 1024 443 s M25-pad3CCPAD;
+#X obj 1108 423 s M25-pad4CCPAD;
+#X obj 522 650 tgl 25 0 \$0-foobar M25-pad1CCPAD empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X obj 558 650 tgl 25 0 \$0-foobar M25-pad2CCPAD empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X obj 594 650 tgl 25 0 \$0-foobar M25-pad3CCPAD empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X obj 630 650 tgl 25 0 \$0-foobar M25-pad4CCPAD empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X text 543 633 with CC and PAD;
+#X obj 979 86 repack 6;
+#X obj 979 108 unpack f f f f f f;
+#X obj 1063 132 sel 5 4 1 2 6, f 26;
+#X obj 1063 154 s M25-rewind;
+#X obj 1092 174 s M25-forward;
+#X obj 1124 194 s M25-stop;
+#X obj 1185 174 s M25-rec;
+#X obj 341 723 bng 25 250 50 0 \$0-foobar M25-rewind << 6 12 0 10 -262144
+-191407 -1;
+#X obj 371 723 bng 25 250 50 0 \$0-foobar M25-forward >> 7 12 0 10
+-262144 -191407 -1;
+#X obj 401 723 bng 25 250 50 0 \$0-foobar M25-stop [] 7 12 0 10 -262144
+-191407 -1;
+#X obj 431 723 bng 25 250 50 0 \$0-foobar M25-play > 10 12 0 10 -262144
+-191407 -1;
+#X obj 461 723 bng 25 250 50 0 \$0-foobar M25-rec o 10 12 0 10 -262144
+-258113 -1;
+#X obj 1154 154 s M25-play;
+#X obj 816 303 s M25-pitch;
+#X obj 896 303 s M25-velocity;
+#X floatatom 211 712 5 0 0 0 pitch M25-pitch #0-foobar, f 5;
+#X floatatom 211 732 5 0 0 0 velocity M25-velocity #0-foobar, f 5
+;
+#X obj 1003 302 s M25-program;
+#X text 1064 725 by Gilberto Agostinho;
+#X text 459 -1 Interface for Samson Graphite M25;
+#X obj 792 501 print;
+#X msg 904 533 M25-pitch \, M25-velocity \, M25-pitchbend \, M25-mod
+\, M25-program \, M25-sus \, M25-maindial \, M25-knob1 \, M25-knob2
+\, M25-knob3 \, M25-knob4 \, M25-knob5 \, M25-knob6 \, M25-knob7 \,
+M25-knob8 \, M25-pad1 \, M25-pad2 \, M25-pad3 \, M25-pad4 \, M25-pad1PAD
+\, M25-pad2PAD \, M25-pad3PAD \, M25-pad4PAD \, M25-pad1touch \, M25-pad2touch
+\, M25-pad3touch \, M25-pad4touch \, M25-pad1PADtouch \, M25-pad2PADtouch
+\, M25-pad3PADtouch \, M25-pad4PADtouch \, M25-pad1CC \, M25-pad2CC
+\, M25-pad3CC \, M25-pad4CC \, M25-pad1CCPAD \, M25-pad2CCPAD \, M25-pad3CCPAD
+\, M25-pad4CCPAD \, M25-rewind \, M25-forward \, M25-stop \, M25-play
+\, M25-rec;
+#X text 1025 514 List of send names;
+#X obj 542 728 bng 15 250 50 0 \$0-print-send-names \$0-foobar2 print\ send\ names
+19 7 0 10 -262144 -1 -1;
+#X obj 904 685 print;
+#X obj 904 490 r \$0-print-send-names;
+#X obj 1153 252 loadbang;
+#X msg 1153 274 0;
+#X text 47 560 SAMSONGraphite M25;
+#X connect 0 0 136 0;
+#X connect 0 1 137 0;
+#X connect 1 0 8 0;
+#X connect 1 0 74 0;
+#X connect 1 1 8 1;
+#X connect 1 1 73 0;
+#X connect 1 2 8 2;
+#X connect 1 2 75 0;
+#X connect 2 0 140 0;
+#X connect 3 0 13 0;
+#X connect 4 0 43 0;
+#X connect 4 0 71 0;
+#X connect 4 1 43 1;
+#X connect 4 1 70 0;
+#X connect 4 2 72 0;
+#X connect 5 0 123 0;
+#X connect 8 0 9 0;
+#X connect 9 0 96 0;
+#X connect 10 1 12 0;
+#X connect 11 0 14 0;
+#X connect 11 1 15 0;
+#X connect 11 2 16 0;
+#X connect 11 3 17 0;
+#X connect 11 4 18 0;
+#X connect 11 5 19 0;
+#X connect 11 6 20 0;
+#X connect 11 7 21 0;
+#X connect 11 8 22 0;
+#X connect 33 1 34 0;
+#X connect 43 0 44 0;
+#X connect 44 0 65 0;
+#X connect 49 0 50 0;
+#X connect 51 0 54 0;
+#X connect 52 0 55 0;
+#X connect 53 0 56 0;
+#X connect 65 0 45 0;
+#X connect 65 0 49 0;
+#X connect 65 1 46 0;
+#X connect 65 1 51 0;
+#X connect 65 2 47 0;
+#X connect 65 2 52 0;
+#X connect 65 3 48 0;
+#X connect 65 3 53 0;
+#X connect 65 4 66 0;
+#X connect 65 4 102 0;
+#X connect 65 5 67 0;
+#X connect 65 5 103 0;
+#X connect 65 6 68 0;
+#X connect 65 6 104 0;
+#X connect 65 7 69 0;
+#X connect 65 7 105 0;
+#X connect 66 0 98 0;
+#X connect 67 0 99 0;
+#X connect 68 0 100 0;
+#X connect 69 0 101 0;
+#X connect 77 0 78 0;
+#X connect 79 1 77 0;
+#X connect 84 0 86 0;
+#X connect 85 1 84 0;
+#X connect 87 0 91 0;
+#X connect 88 1 87 0;
+#X connect 89 0 92 0;
+#X connect 90 1 89 0;
+#X connect 96 0 10 0;
+#X connect 96 1 11 0;
+#X connect 96 2 33 0;
+#X connect 96 3 97 0;
+#X connect 97 0 79 0;
+#X connect 97 1 85 0;
+#X connect 97 2 88 0;
+#X connect 97 3 90 0;
+#X connect 97 4 107 0;
+#X connect 97 5 109 0;
+#X connect 97 6 111 0;
+#X connect 97 7 113 0;
+#X connect 106 0 114 0;
+#X connect 107 1 106 0;
+#X connect 108 0 115 0;
+#X connect 109 1 108 0;
+#X connect 110 0 116 0;
+#X connect 111 1 110 0;
+#X connect 112 0 117 0;
+#X connect 113 1 112 0;
+#X connect 123 0 124 0;
+#X connect 124 4 125 0;
+#X connect 125 0 126 0;
+#X connect 125 1 127 0;
+#X connect 125 2 128 0;
+#X connect 125 3 135 0;
+#X connect 125 4 129 0;
+#X connect 144 0 147 0;
+#X connect 148 0 144 0;
+#X connect 149 0 150 0;
+#X connect 150 0 13 0;
+#X coords 0 -1 1 1 643 222 2 37 542;
