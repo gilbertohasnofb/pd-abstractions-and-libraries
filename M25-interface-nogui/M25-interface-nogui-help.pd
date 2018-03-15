@@ -1,0 +1,15 @@
+#N canvas 364 103 429 302 10;
+#X text 41 74 List of send names:M25-pitch \, M25-velocity \, M25-pitchbend
+\, M25-modulation \, M25-program \, M25-sustain \, M25-maindial \,
+M25-knob1 \, M25-knob2 \, M25-knob3 \, M25-knob4 \, M25-knob5 \, M25-knob6
+\, M25-knob7 \, M25-knob8 \, M25-pad1 \, M25-pad2 \, M25-pad3 \, M25-pad4
+\, M25-pad1PAD \, M25-pad2PAD \, M25-pad3PAD \, M25-pad4PAD \, M25-pad1touch
+\, M25-pad2touch \, M25-pad3touch \, M25-pad4touch \, M25-pad1PADtouch
+\, M25-pad2PADtouch \, M25-pad3PADtouch \, M25-pad4PADtouch \, M25-pad1CC
+\, M25-pad2CC \, M25-pad3CC \, M25-pad4CC \, M25-pad1CCPAD \, M25-pad2CCPAD
+\, M25-pad3CCPAD \, M25-pad4CCPAD \, M25-rewind \, M25-forward \, M25-stop
+\, M25-play \, M25-rec;
+#X obj 42 46 M25-interface-nogui;
+#X text 270 255 by Gilberto Agostinho;
+#X text 40 21 Interface for Samson Graphite M25 (no GUI);
+#X coords 0 0 1 1 795 184 0;

@@ -278,4 +278,4 @@ M25-knob8 \, M25-pad1 \, M25-pad2 \, M25-pad3 \, M25-pad4 \, M25-pad1PAD
 #X connect 89 0 10 0;
 #X connect 90 0 86 0;
 #X restore 633 79 pd guts;
-#X coords 0 -1 1 1 643 222 2 39 107;
+#X coords 0 0 1 1 643 222 0;
