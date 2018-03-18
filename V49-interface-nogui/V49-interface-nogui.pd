@@ -1,0 +1,168 @@
+#N canvas 1323 86 526 374 10;
+#X obj 56 196 vsl 20 80 -8192 8192 0 0 \$0-foobar V49-pitchbend empty
+0 -9 0 10 -262144 -1 -1 3950 1;
+#X obj 96 196 vsl 20 80 0 127 0 0 \$0-foobar V49-modulation empty 0
+-9 0 10 -262144 -1 -1 0 1;
+#X obj 52 159 moonlib/mknob 25 100 0 127 0 0 \$0-foobar V49-knob1 empty
+-2 -6 0 8 -262144 -1 -1 0 1;
+#X obj 95 159 moonlib/mknob 25 100 0 127 0 0 \$0-foobar V49-knob2 empty
+-2 -6 0 8 -262144 -1 -1 0 1;
+#X obj 138 159 moonlib/mknob 25 100 0 127 0 0 \$0-foobar V49-knob3
+empty -2 -6 0 8 -262144 -1 -1 0 1;
+#X obj 181 159 moonlib/mknob 25 100 0 127 0 0 \$0-foobar V49-knob4
+empty -2 -6 0 8 -262144 -1 -1 0 1;
+#X obj 260 148 tgl 40 0 \$0-foobar V49-pad1 empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X floatatom 260 192 5 0 0 0 - V49-pad1touch #0-foobar, f 5;
+#X floatatom 187 281 5 0 0 0 pitch V49-pitch #0-foobar, f 5;
+#X floatatom 187 301 5 0 0 0 velocity V49-velocity #0-foobar, f 5
+;
+#X text 342 340 by Gilberto Agostinho;
+#X obj 345 308 bng 15 250 50 0 \$0-print-send-names \$0-foobar2 print\ send\ names
+19 7 0 10 -262144 -1 -1;
+#N canvas 393 371 1085 610 guts 0;
+#X obj 445 146 ctlin, f 10;
+#X obj 667 383 bendin;
+#X obj 445 176 pack f f f;
+#X obj 667 411 s V49-pitchbend;
+#X obj 462 -16 pack f f;
+#X obj 462 40 s V49-pad1touch;
+#X obj 566 40 s V49-pad2touch;
+#X obj 671 40 s V49-pad3touch;
+#X obj 776 40 s V49-pad4touch;
+#X obj 478 61 > 0;
+#X obj 478 83 s V49-pad1;
+#X obj 578 61 > 0;
+#X obj 688 61 > 0;
+#X obj 788 61 > 0;
+#X obj 578 83 s V49-pad2;
+#X obj 688 83 s V49-pad3;
+#X obj 788 83 s V49-pad4;
+#X obj 896 61 > 0;
+#X obj 998 61 > 0;
+#X obj 1106 61 > 0;
+#X obj 1208 61 > 0;
+#X obj 450 400 s V49-pitch;
+#X obj 525 400 s V49-velocity;
+#X text 1040 347 List of send names;
+#X obj 919 488 print;
+#X obj 919 323 r \$0-print-send-names;
+#X obj 714 361 loadbang;
+#X msg 714 383 0;
+#X obj 445 267 s V49-modulation;
+#X obj 462 -41 notein 10, f 16;
+#X obj 896 83 s V49-pad5;
+#X obj 998 83 s V49-pad6;
+#X obj 1106 83 s V49-pad7;
+#X obj 1208 83 s V49-pad8;
+#X obj 1196 40 s V49-pad8touch;
+#X obj 1089 40 s V49-pad7touch;
+#X obj 986 40 s V49-pad6touch;
+#X obj 880 40 s V49-pad5touch;
+#X obj 462 18 route 49 41 42 46 36 37 38 39, f 140;
+#X obj 536 242 s V49-knob1;
+#X msg 445 198 \$2 \$1;
+#X obj 628 242 s V49-knob2;
+#X obj 720 242 s V49-knob3;
+#X obj 812 242 s V49-knob4;
+#X msg 919 366 V49-pitch \, V49-velocity \, V49-pitchbend \, V49-modulation
+\, V49-knob1 \, V49-knob2 \, V49-knob3 \, V49-knob4 \, V49-pad1 \,
+V49-pad2 \, V49-pad3 \, V49-pad4 \, V49-pad5 \, V49-pad6 \, V49-pad7
+\, V49-pad8 \, V49-pad1touch \, V49-pad2touch \, V49-pad3touch \, V49-pad4touch
+\, V49-pad5touch \, V49-pad6touch \, V49-pad7touch \, V49-pad8touch
+\, V49-toggle1 \, V49-toggle2 \, V49-toggle3 \, V49-toggle4;
+#X obj 445 220 route 1 20 21 22 23 48 49 50 51, f 138;
+#X obj 902 242 > 1;
+#X obj 902 264 s V49-toggle1;
+#X obj 994 242 > 1;
+#X obj 1086 242 > 1;
+#X obj 1178 242 > 1;
+#X obj 994 264 s V49-toggle2;
+#X obj 1086 264 s V49-toggle3;
+#X obj 1178 264 s V49-toggle4;
+#X obj 450 378 notein 3, f 12;
+#X connect 0 0 2 0;
+#X connect 0 1 2 1;
+#X connect 0 2 2 2;
+#X connect 1 0 3 0;
+#X connect 2 0 40 0;
+#X connect 4 0 38 0;
+#X connect 9 0 10 0;
+#X connect 11 0 14 0;
+#X connect 12 0 15 0;
+#X connect 13 0 16 0;
+#X connect 17 0 30 0;
+#X connect 18 0 31 0;
+#X connect 19 0 32 0;
+#X connect 20 0 33 0;
+#X connect 25 0 44 0;
+#X connect 26 0 27 0;
+#X connect 27 0 3 0;
+#X connect 29 0 4 0;
+#X connect 29 1 4 1;
+#X connect 38 0 5 0;
+#X connect 38 0 9 0;
+#X connect 38 1 6 0;
+#X connect 38 1 11 0;
+#X connect 38 2 7 0;
+#X connect 38 2 12 0;
+#X connect 38 3 8 0;
+#X connect 38 3 13 0;
+#X connect 38 4 17 0;
+#X connect 38 4 37 0;
+#X connect 38 5 18 0;
+#X connect 38 5 36 0;
+#X connect 38 6 19 0;
+#X connect 38 6 35 0;
+#X connect 38 7 20 0;
+#X connect 38 7 34 0;
+#X connect 40 0 45 0;
+#X connect 44 0 24 0;
+#X connect 45 0 28 0;
+#X connect 45 1 39 0;
+#X connect 45 2 41 0;
+#X connect 45 3 42 0;
+#X connect 45 4 43 0;
+#X connect 45 5 46 0;
+#X connect 45 6 48 0;
+#X connect 45 7 49 0;
+#X connect 45 8 50 0;
+#X connect 46 0 47 0;
+#X connect 48 0 51 0;
+#X connect 49 0 52 0;
+#X connect 50 0 53 0;
+#X connect 54 0 21 0;
+#X connect 54 1 22 0;
+#X restore 426 81 pd guts;
+#X text 181 42 Interface for Alesis V49;
+#X text 52 121 ALESIS V49;
+#X obj 310 148 tgl 40 0 \$0-foobar V49-pad2 empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X floatatom 310 192 5 0 0 0 - V49-pad2touch #0-foobar, f 5;
+#X obj 360 148 tgl 40 0 \$0-foobar V49-pad3 empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X floatatom 360 192 5 0 0 0 - V49-pad3touch #0-foobar, f 5;
+#X obj 410 148 tgl 40 0 \$0-foobar V49-pad4 empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X floatatom 410 192 5 0 0 0 - V49-pad4touch #0-foobar, f 5;
+#X obj 410 218 tgl 40 0 \$0-foobar V49-pad8 empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X floatatom 410 262 5 0 0 0 - V49-pad8touch #0-foobar, f 5;
+#X obj 360 218 tgl 40 0 \$0-foobar V49-pad7 empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X floatatom 360 262 5 0 0 0 - V49-pad7touch #0-foobar, f 5;
+#X obj 310 218 tgl 40 0 \$0-foobar V49-pad6 empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X floatatom 310 262 5 0 0 0 - V49-pad6touch #0-foobar, f 5;
+#X obj 260 218 tgl 40 0 \$0-foobar V49-pad5 empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X floatatom 260 262 5 0 0 0 - V49-pad5touch #0-foobar, f 5;
+#X obj 151 201 tgl 20 0 \$0-foobar V49-toggle1 empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X obj 181 201 tgl 20 0 \$0-foobar V49-toggle2 empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X obj 181 231 tgl 20 0 \$0-foobar V49-toggle4 empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X obj 151 231 tgl 20 0 \$0-foobar V49-toggle3 empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X coords 0 0 1 1 433 224 0;

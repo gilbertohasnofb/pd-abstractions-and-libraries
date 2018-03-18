@@ -1,0 +1,12 @@
+#N canvas 817 278 719 475 10;
+#X text 455 434 by Gilberto Agostinho;
+#X text 261 27 Interface for Alesis V49;
+#X text 125 293 List of send names:V49-pitch \, V49-velocity \, V49-pitchbend
+\, V49-modulation \, V49-knob1 \, V49-knob2 \, V49-knob3 \, V49-knob4
+\, V49-pad1 \, V49-pad2 \, V49-pad3 \, V49-pad4 \, V49-pad5 \, V49-pad6
+\, V49-pad7 \, V49-pad8 \, V49-pad1touch \, V49-pad2touch \, V49-pad3touch
+\, V49-pad4touch \, V49-pad5touch \, V49-pad6touch \, V49-pad7touch
+\, V49-pad8touch \, V49-toggle1 \, V49-toggle2 \, V49-toggle3 \, V49-toggle4
+;
+#X obj 128 59 V49-interface;
+#X coords 0 0 1 1 795 184 0;
